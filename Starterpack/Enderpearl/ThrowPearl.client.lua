@@ -8,7 +8,7 @@ local remote = rep.PearlTeleport
 local camera = workspace.CurrentCamera
 local startpos = Vector3.new()
 
-tool.Equipped:Connect(function() --when tool equipped
+tool.Equipped:Connect(function() --when tool is equipped and used, it sends a signal to the remote to talk to the server script in ServerScriptService.
 	tool.Activated:Connect(function(plr)
 		local campos = camera.CFrame
 		remote:FireServer(campos, tool)
