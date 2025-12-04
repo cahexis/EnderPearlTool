@@ -14,15 +14,14 @@ remote.OnServerEvent:Connect(function(plr, campos, tool)
 	pearlclone.AssemblyLinearVelocity = campos.lookVector*100
 	pearlclone.CFrame = CFrame.new(startpos, campos.lookVector*100)
 	
-	local function TempParticles()
+	local function TempParticles() -- particles for when the pearl lands.
 		particlez.Parent = workspace
-
 		wait(3)
 		particlez:Destroy()
 	end
 
 	
-	pearlclone.Touched:Connect(function(hit)
+	pearlclone.Touched:Connect(function(hit) -- when the pearl touches any part, it moves the owner to the position.
 		if hit:IsA("Part") and hit.Name ~= "DT" then
 			char:MoveTo(Vector3.new(pearlclone.Position.X, pearlclone.Position.Y, pearlclone.Position.Z))			
 			particlez.CFrame = pearlclone.CFrame
